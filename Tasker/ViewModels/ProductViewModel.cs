@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using Tasker.Models;
 using Xamarin.Forms;
@@ -77,12 +78,15 @@ namespace Tasker.ViewModels
             App.Current.MainPage.Navigation.PushModalAsync(new Views.Details(AddListCommand, obj));
         }
 
-        private void AddIteam(Product obj)
+        private async void AddIteam(Product obj)
         {   TotalPrice += obj.Price; 
 
             Basket.Add(obj);
-         
 
+            if (App.Current.MainPage.Navigation.ModalStack.Any(a  =>a is Views.Details))
+            {
+           await     App.Current.MainPage.Navigation.PopModalAsync();
+            }
         }
 
         private void Add()
