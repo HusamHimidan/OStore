@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:Tasker.Models" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:viewmodels="clr-namespace:Tasker.ViewModels"
+              x:Name="Page"  BackgroundColor="Honeydew"  Title="Running tasks" x:Class="Tasker.Views.TasksListPage">
+         <ContentPage.ToolbarItems>
+            <ToolbarItem Command="{Binding  OpenAddPageCommand}" Text="Add task"/>
+        </ContentPage.ToolbarItems>
+    <ListView SelectionMode="None" ItemsSource="{Binding Tasks}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Task">
+                <ViewCell >
+                    <StackLayout Padding="0,0,10,0"  Orientation="Horizontal">
+                        <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                 CommandParameter="{Binding}"    
+                                                      Command="{Binding Source={Reference Page},Path=BindingContext.FinishCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                        <Button Text="Finish" BackgroundColor="Blue"    CommandParameter="{Binding}"     Command="{Binding Source={Reference Page},Path=BindingContext.FinishCommand}" TextColor="White"/>
+                        <Label VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span  TextColor="Black" Text="{Binding Note}" /> 
+                                    <Span Text="{Static system:Environment.NewLine}"/>
+                                    <Span  TextColor="DarkBlue" Text="{Binding Date}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView> 
+</ContentPage>

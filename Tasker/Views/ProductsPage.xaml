@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Tasker.ViewModels" xmlns:models="clr-namespace:Tasker.Models" xmlns:system="clr-namespace:System;assembly=netstandard" xmlns:views="clr-namespace:Tasker.Views"
+            x:DataType="viewmodels:ProductViewModel"
+          Title="X Store" x:Name="Page"   x:Class="Tasker.Views.ProductsPage">
+            <ContentPage Title="Shope">
+                <ContentPage.ToolbarItems>
+                    <ToolbarItem Text="Add product" Command="{Binding AddCommand}"/>
+                </ContentPage.ToolbarItems>
+                <ContentPage.Content>
+                    <Grid>
+                        <ListView HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Products}"
+                      >
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="models:Product">
+                                    <ViewCell >
+                                <StackLayout Padding="15"  Orientation="Horizontal">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            
+                                        Command="{Binding Source={Reference Page},Path=BindingContext.DetailsCommand}" 
+                                            CommandParameter="{Binding}"/>
+                                    </StackLayout.GestureRecognizers>
+
+                                    <Image Margin="10,0" WidthRequest="60" HeightRequest="60" Source="{Binding ImageUrl}"/>
+                                    <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextDecorations="Underline" FontAttributes="Bold" TextColor="Black" Text="{Binding  Name }" />
+                                                <Span Text="{Static system:Environment.NewLine}"/>
+                                                <Span  TextColor="Green" Text="{Binding Price,StringFormat='{0} $'}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Button Text="Add To Basket" VerticalOptions="Center" Padding="2" BackgroundColor="LightCoral" 
+                                        WidthRequest="130 " HeightRequest="30"
+                                        FontSize="Small" TextTransform="None"  
+                                        CommandParameter="{Binding}"   
+                                        Command="{Binding Source={Reference Page},Path=BindingContext.AddListCommand}" TextColor="White" HorizontalOptions="EndAndExpand"  />
+                                </StackLayout>
+                            </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </ContentPage.Content>
+            </ContentPage>
+       <views:BasketPage/>
+</TabbedPage>

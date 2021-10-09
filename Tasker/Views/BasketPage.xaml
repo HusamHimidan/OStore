@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+     Title="Basket"        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:Tasker.Views" xmlns:models="clr-namespace:Tasker.Models" xmlns:viewmodels="clr-namespace:Tasker.ViewModels"
+              x:Class="Tasker.Views.BasketPage"  x:DataType="viewmodels:ProductViewModel">
+
+    <Grid RowDefinitions="*,auto">
+        <ListView VerticalOptions="Start" Grid.Column="0" Grid.Row="0" CachingStrategy="RecycleElement" SelectionMode="None" ItemsSource="{Binding Basket}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Product">
+                    <ImageCell ImageSource="{Binding ImageUrl}" TextColor="Black" 
+                               Text="{Binding Name }" 
+                        DetailColor="Green"  
+                               Detail="{Binding Price,StringFormat='{0} $' }" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Grid.ColumnSpan="1" Margin="10" BackgroundColor="NavajoWhite" Grid.Row="1">
+            <Label Text="{Binding TotalPrice, StringFormat='Total Sum :  {0} $'}" HorizontalOptions="Center"  />
+        </StackLayout>
+    </Grid>
+</ContentPage>

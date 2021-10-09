@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:viewmodels="clr-namespace:Tasker.ViewModels"
+            xmlns:models="clr-namespace:Tasker.Models" xmlns:views="clr-namespace:Tasker.Views"  
+            x:DataType="viewmodels:TasksViewModel"
+             x:Class="Tasker.Views.TasksPage">
+    <views:TasksListPage/>
+    <ContentPage Title="Finished tasks">
+        <ListView SelectionMode="None" ItemsSource="{Binding FinishedTasks}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Task">
+                    <TextCell TextColor="Black" Text="{Binding Note}" Detail="{Binding Date}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+    
+</TabbedPage>
