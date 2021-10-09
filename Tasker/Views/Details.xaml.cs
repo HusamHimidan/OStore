@@ -12,14 +12,16 @@ namespace Tasker.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Details : ContentPage
     {
-        public Details(Product product)
+        public Details(Command addCommand,Product product)
         {
 
             InitializeComponent();
+            AddCommand = addCommand;
             Product = product;
-            BindingContext = product;
+            BindingContext = this;
         }
 
+        public Command AddCommand { get; }
         public Product Product { get; }
     }
 }

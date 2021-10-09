@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-         x:DataType="models:Product"   
+         x:DataType="views:Details"   
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:models="clr-namespace:Tasker.Models" xmlns:system="clr-namespace:System;assembly=netstandard"
+          x:Name="Page"   xmlns:models="clr-namespace:Tasker.Models" xmlns:system="clr-namespace:System;assembly=netstandard" xmlns:views="clr-namespace:Tasker.Views"
              x:Class="Tasker.Views.Details">
     <ContentPage.Content>
         <StackLayout Padding="15"  Orientation="Vertical" VerticalOptions="Center"  >
-            <Image Margin="10,0" WidthRequest="200" HeightRequest="200" Source="{Binding ImageUrl}"/>
+            <Image Margin="10,0" WidthRequest="200" HeightRequest="200" Source="{Binding Product.ImageUrl}"/>
             <Label HorizontalTextAlignment="Center"  VerticalTextAlignment="Center">
                 <Label.FormattedText>
-                    <FormattedString> 
-                        <Span TextDecorations="Underline" FontAttributes="Bold" TextColor="Black" Text="{Binding  Name }" />
+                    <FormattedString>
+                        <Span TextDecorations="Underline" FontAttributes="Bold" TextColor="Black" Text="{Binding  Product.Name }" />
                         <Span Text="{Static system:Environment.NewLine}"/>
-                        <Span TextDecorations="Underline" Text="{Binding Size, StringFormat='Size: {0}' }" FontAttributes="Bold" TextColor="Black"/>
+                        <Span TextDecorations="Underline" Text="{Binding Product.Size, StringFormat='Size: {0}' }" FontAttributes="Bold" TextColor="Black"/>
                         <Span Text="{Static system:Environment.NewLine}"/>
-                        <Span TextDecorations="Underline" TextColor="Green" Text="{Binding Price,StringFormat='Price: {0} $'}" />
+                        <Span TextDecorations="Underline" TextColor="Green" Text="{Binding Product.Price,StringFormat='Price: {0} $'}" />
                         
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <Button Text="Add To Basket" VerticalOptions="Center" Padding="2" BackgroundColor="LightCoral" 
+            <Button Text="Add To Basket" VerticalOptions="Center" HorizontalOptions="Center" Padding="2" BackgroundColor="LightCoral" 
                 WidthRequest="130 " HeightRequest="30"
                 FontSize="Small" TextTransform="None"  
-                CommandParameter="{Binding}"   
-                Command="{Binding Source={Reference Page},Path=BindingContext.AddListCommand}" TextColor="White" HorizontalOptions="EndAndExpand"  />
+                CommandParameter="{Binding Product}"   
+                Command="{Binding Source={Reference Page},Path=BindingContext.AddCommand}" TextColor="White"  Margin="20" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -29,8 +29,7 @@ namespace Tasker.ViewModels
             AddListCommand = new Command<Product>(AddIteam);
             Basket = new ObservableCollection<Product>();
             DetailsCommand = new Command<Product>(Details);
-
-              Products = new ObservableCollection<Models.Product>()
+               Products = new ObservableCollection<Models.Product>()
             {
                  new Models.Product
                  {
@@ -72,9 +71,10 @@ namespace Tasker.ViewModels
             
         }
 
+      
         private void Details(Product obj)
         {
-            App.Current.MainPage.Navigation.PushModalAsync(new Views.Details(obj));
+            App.Current.MainPage.Navigation.PushModalAsync(new Views.Details(AddListCommand, obj));
         }
 
         private void AddIteam(Product obj)
