@@ -33,7 +33,7 @@
                                         </Label.FormattedText>
                                     </Label>
                                     <Button Text="Add To Basket" VerticalOptions="Center" Padding="2" BackgroundColor="LightCoral" 
-                                        WidthRequest="130 " HeightRequest="30"
+                                        WidthRequest="100 " HeightRequest="40" CornerRadius=" 5"
                                         FontSize="Small" TextTransform="None"  
                                         CommandParameter="{Binding}"   
                                         Command="{Binding Source={Reference Page},Path=BindingContext.AddListCommand}" TextColor="White" HorizontalOptions="EndAndExpand"  />
