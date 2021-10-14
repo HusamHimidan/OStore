@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
          x:DataType="views:Details"   
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-          x:Name="Page"   xmlns:models="clr-namespace:Tasker.Models" xmlns:system="clr-namespace:System;assembly=netstandard" xmlns:views="clr-namespace:Tasker.Views"
+          x:Name="Page"   xmlns:models="clr-namespace:Tasker.Models" xmlns:system="clr-namespace:System;assembly=netstandard" xmlns:views="clr-namespace:Tasker.Views" xmlns:viewmodels="clr-namespace:Tasker.ViewModels"
              x:Class="Tasker.Views.Details">
     <ContentPage.Content>
         <StackLayout Padding="15"  Orientation="Vertical" VerticalOptions="Center"  >
@@ -15,7 +15,7 @@
                         <Span TextDecorations="Underline" Text="{Binding Product.Size, StringFormat='Size: {0}' }" FontAttributes="Bold" TextColor="Black"/>
                         <Span Text="{Static system:Environment.NewLine}"/>
                         <Span TextDecorations="Underline" TextColor="Green" Text="{Binding Product.Price,StringFormat='Price: {0} $'}" />
-                        
+
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -23,7 +23,7 @@
                 WidthRequest="115 " HeightRequest="50" CornerRadius="5"
                 FontSize="Small" TextTransform="None"  
                 CommandParameter="{Binding Product}"   
-                Command="{Binding Source={Reference Page},Path=BindingContext.AddCommand}" TextColor="White"  Margin="20" />
+                Command="{Binding Source={Static viewmodels:BasketViewModel.Default},Path=AddListCommand}" TextColor="White"  Margin="20" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Tasker.Views
+namespace Tasker
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddProductPage : ContentPage
+    public partial class MainShellPageDetail : ContentPage
     {
-        public AddProductPage(ViewModels.AddProductViewModel productViewModel)
+        public MainShellPageDetail()
         {
             InitializeComponent();
-            BindingContext = productViewModel;
         }
     }
 }

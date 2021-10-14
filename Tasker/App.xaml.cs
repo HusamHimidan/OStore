@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using System;
+using Tasker.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,10 +9,10 @@ namespace Tasker
     public partial class App : Application
     {
         public App()
-        {
+        { 
             InitializeComponent();
 
-            MainPage = new NavigationPage( new Views.ProductsPage());
+            MainPage = new MainShellPage();
         }
 
         protected override void OnStart()

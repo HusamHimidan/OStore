@@ -28,10 +28,10 @@ namespace Tasker.ViewModels
             FinishedTasks = new ObservableCollection<Task>();
         }
 
-        private void OpenAddPage(   )
-        {
-            App.Current.MainPage.Navigation.PushModalAsync(new AddTask(this));
-        }
+        //private void OpenAddPage(   )
+        //{
+        //    App.Current.MainPage.Navigation.PushModalAsync(new AddTask(this));
+        //}
 
         private void Finish(Task obj)
         {

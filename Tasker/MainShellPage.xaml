@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tasker.MainShellPage"
+             xmlns:pages="clr-namespace:Tasker" xmlns:views="clr-namespace:Tasker.Views" xmlns:viewmodels="clr-namespace:Tasker.ViewModels">
+  <FlyoutPage.Flyout>
+    <pages:MainShellPageFlyout x:Name="FlyoutPage" />
+  </FlyoutPage.Flyout>
+  <FlyoutPage.Detail>
+    <NavigationPage>
+      <x:Arguments>
+                <views:ProductsPage>
+                    <views:ProductsPage.BindingContext>
+                        <viewmodels:ProductViewModel/>
+                    </views:ProductsPage.BindingContext>
+                    </views:ProductsPage>
+      </x:Arguments>
+    </NavigationPage>
+  </FlyoutPage.Detail>
+</FlyoutPage>

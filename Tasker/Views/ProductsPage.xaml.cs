@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace Tasker.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProductsPage : TabbedPage
+    public partial class ProductsPage : ContentPage
     {
         public ProductsPage()
         {
             InitializeComponent();
-            BindingContext = new ViewModels.ProductViewModel();
+           
         }
     }
 }

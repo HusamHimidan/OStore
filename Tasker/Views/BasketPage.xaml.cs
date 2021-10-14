@@ -15,6 +15,7 @@ namespace Tasker.Views
         public BasketPage()
         {
             InitializeComponent();
+            BindingContext = ViewModels.BasketViewModel.Default;
         }
     }
 }

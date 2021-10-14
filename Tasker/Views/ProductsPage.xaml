@@ -1,17 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Tasker.ViewModels" xmlns:models="clr-namespace:Tasker.Models" xmlns:system="clr-namespace:System;assembly=netstandard" xmlns:views="clr-namespace:Tasker.Views"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:viewmodels="clr-namespace:Tasker.ViewModels" 
+            xmlns:models="clr-namespace:Tasker.Models" 
+            xmlns:system="clr-namespace:System;assembly=netstandard" 
+            xmlns:views="clr-namespace:Tasker.Views"
             x:DataType="viewmodels:ProductViewModel"
-          Title="X Store" x:Name="Page"   x:Class="Tasker.Views.ProductsPage">
-            <ContentPage Title="Shope">
-                <ContentPage.ToolbarItems>
-                    <ToolbarItem Text="Add product" Command="{Binding AddCommand}"/>
-                </ContentPage.ToolbarItems>
-                <ContentPage.Content>
+            Title="X Store" x:Name="Page"   
+            x:Class="Tasker.Views.ProductsPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ProductViewModel/>
+    </ContentPage.BindingContext>
+         <ContentPage.ToolbarItems>
+            <ToolbarItem Command="{Binding  OpenBasketCommand }" Text="Basket"/>
+        </ContentPage.ToolbarItems>
                     <Grid>
-                        <ListView HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Products}"
-                      >
-                            <ListView.ItemTemplate>
+                <ListView HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Products}">
+                    <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="models:Product">
                                     <ViewCell >
                                 <StackLayout Padding="15"  Orientation="Horizontal">
@@ -36,14 +42,12 @@
                                         WidthRequest="100 " HeightRequest="40" CornerRadius=" 5"
                                         FontSize="Small" TextTransform="None"  
                                         CommandParameter="{Binding}"   
-                                        Command="{Binding Source={Reference Page},Path=BindingContext.AddListCommand}" TextColor="White" HorizontalOptions="EndAndExpand"  />
+                                        Command="{Binding Source={Static viewmodels:BasketViewModel.Default},Path=AddListCommand}" TextColor="White" HorizontalOptions="EndAndExpand"  />
                                 </StackLayout>
                             </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                    </Grid>
-                </ContentPage.Content>
-            </ContentPage>
-       <views:BasketPage/>
-</TabbedPage>
+                    </Grid> 
+            
+</ContentPage>
