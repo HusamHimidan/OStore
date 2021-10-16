@@ -18,7 +18,7 @@ namespace Tasker.ViewModels
         {
             base.AddIteam(obj);
             if (App.Current.MainPage.Navigation.ModalStack.Any(a => a is NavigationPage navigationPage && navigationPage.CurrentPage is Details))
-            { 
+            {
                 await App.Current.MainPage.Navigation.PopModalAsync();
             }
         }
