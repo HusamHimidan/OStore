@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-          
-            xmlns:models="clr-namespace:Tasker.Models" 
-             xmlns:system="clr-namespace:System;assembly=netstandard" xmlns:views="clr-namespace:Tasker.Views" xmlns:viewmodels="clr-namespace:Tasker.ViewModels" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:models="clr-namespace:Tasker.Models" 
+             xmlns:system="clr-namespace:System;assembly=netstandard" 
+             xmlns:views="clr-namespace:Tasker.Views" 
+             xmlns:viewmodels="clr-namespace:Tasker.ViewModels" 
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="{Binding Product.Name, StringFormat='{0} Detials' }"
              x:Class="Tasker.Views.Details" 
-            x:Name="Page"  x:DataType="views:Details"    >
+             x:Name="Page"  x:DataType="views:Details"    >
     
     <ContentPage.Content>
         <StackLayout Padding="15"  Orientation="Vertical" VerticalOptions="Center"  >
