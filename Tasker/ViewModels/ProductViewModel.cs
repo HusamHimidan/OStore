@@ -155,10 +155,10 @@ namespace Tasker.ViewModels
 
         private void Details(Product obj)
         {
-            App.Current.MainPage.Navigation.PushModalAsync(new Views.Details(AddListCommand, obj));
+            App.Current.MainPage.Navigation.PushModalAsync(new NavigationPage( new Views.Details(AddListCommand, obj)));
         }
 
-        protected virtual async void AddIteam(Product obj)
+        protected virtual   void AddIteam(Product obj)
         {
            
             Products.Add(obj);

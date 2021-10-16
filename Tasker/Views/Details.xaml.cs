@@ -19,6 +19,7 @@ namespace Tasker.Views
             AddCommand = addCommand;
             Product = product;
             BindingContext = this;
+        
         }
 
         public Command AddCommand { get; }

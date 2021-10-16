@@ -4,8 +4,8 @@
             xmlns:viewmodels="clr-namespace:Tasker.ViewModels" 
             xmlns:models="clr-namespace:Tasker.Models" 
             xmlns:system="clr-namespace:System;assembly=netstandard" 
-            xmlns:views="clr-namespace:Tasker.Views"
-            x:DataType="viewmodels:ProductViewModel"
+            xmlns:views="clr-namespace:Tasker.Views" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:DataType="viewmodels:ProductViewModel"
             Title="X Store" x:Name="Page"   
             x:Class="Tasker.Views.ProductsPage">
 
@@ -16,10 +16,9 @@
             <ToolbarItem Command="{Binding  OpenBasketCommand }" Text="Basket"/>
         </ContentPage.ToolbarItems>
                     <Grid>
-                <ListView HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Products}">
-                    <ListView.ItemTemplate>
+                        <CollectionView    SelectionMode="None" ItemsSource="{Binding Products}">
+                            <CollectionView.ItemTemplate>
                                 <DataTemplate x:DataType="models:Product">
-                                    <ViewCell >
                                 <StackLayout Padding="15"  Orientation="Horizontal">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer
@@ -28,7 +27,7 @@
                                             CommandParameter="{Binding}"/>
                                     </StackLayout.GestureRecognizers>
 
-                                    <Image Margin="10,0" WidthRequest="60" HeightRequest="60" Source="{Binding ImageUrl}"/>
+                            <forms:CachedImage  DownsampleToViewSize="True" Margin="10,0" WidthRequest="60" HeightRequest="60" Source="{Binding ImageUrl}"/>
                                     <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center">
                                         <Label.FormattedText>
                                             <FormattedString>
@@ -44,10 +43,9 @@
                                         CommandParameter="{Binding}"   
                                         Command="{Binding Source={Static viewmodels:BasketViewModel.Default},Path=AddListCommand}" TextColor="White" HorizontalOptions="EndAndExpand"  />
                                 </StackLayout>
-                            </ViewCell>
                                 </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </Grid> 
             
 </ContentPage>

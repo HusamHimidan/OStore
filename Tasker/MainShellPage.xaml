@@ -10,10 +10,10 @@
     <NavigationPage>
       <x:Arguments>
                 <views:ProductsPage>
-                    <views:ProductsPage.BindingContext>
-                        <viewmodels:ProductViewModel/>
-                    </views:ProductsPage.BindingContext>
-                    </views:ProductsPage>
+                <views:ProductsPage.BindingContext>
+                <viewmodels:ProductViewModel/>
+                </views:ProductsPage.BindingContext>
+                </views:ProductsPage>
       </x:Arguments>
     </NavigationPage>
   </FlyoutPage.Detail>
